@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html xmlms:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1 th:text="${titulo}"></h1>
+        <div>HOLA 2022</div>
+        <h1 th:text="Hello"></h1>
+        <h1 th:text="sadsa"></h1>
+        <h1 th:text="${mensaje}"></h1>
+
+        <a th:text="${saludo}"></a>
+        <div th:if="${ personas != null and !personas.empty}">
+            <table>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Telefono</th>
+
+                </tr>
+                <tr th:each="persona : ${personas}">
+                    <td th:text="${persona.nombre}">Mostrar nombre</td>
+                    <td th:text="${persona.apellido}"></td>
+                    <td th:text="${persona.email}"></td>
+                    <td th:text="${persona.telefono}"></td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div th:if="${personas == null or personas.empty}">
+            <h1>La lista esta vacia</h1>
+        </div>
+        
+    </body>
+</html>
