@@ -20,9 +20,14 @@ public class Hola {
 
     @GetMapping("/")
     public String inicio(Model model){
-        
+        Persona person3 = new Persona();
         Persona persona1 = new Persona();
         Persona persona2 = new Persona();
+        
+        person3.setNombre("Luis");
+        person3.setApellido("Juarez");
+        person3.setEmail("luis@mail.com");
+        person3.setTelefono("2423423");
         
         persona1.setNombre("Juan");
         persona1.setApellido("Perez");
@@ -34,6 +39,7 @@ public class Hola {
         persona2.setEmail("554545");
         persona2.setTelefono("443634");
         
+        log.info(person3.getNombre() + " " + person3.getApellido());
         log.info("Ejecutando controlador desde MVC");
         log.info("Otro log mas");
         log.info("Agregamos otro log");
@@ -44,8 +50,8 @@ public class Hola {
         //model.addAttribute("titulo",titulo);
         //model.addAttribute("saludo",saludo);
         
-        //var personas = Arrays.asList(persona1 , persona2);
-        var personas = new ArrayList();
+        var personas = Arrays.asList(persona1 , persona2 , person3);
+        //var personas = new ArrayList();
         model.addAttribute("personas", personas);
         return "index";
        
